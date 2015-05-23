@@ -18,11 +18,7 @@ shinyServer(function(input, output) {
   datainches <- reactive({as.numeric(input$inches)})
   datapounds <- reactive({as.numeric(input$pounds)})
   bmiindex <- reactive({bmi(datafeet(), datainches(), datapounds())})
-#   finalInput <- reactive({
-#     if(!input$adjust) return(dataInput())
-#     adjust(dataInput())
-#   })
-#   
+
   output$userinput <- renderText({ 
     input$goButton
     isolate(paste("Height: ", input$feet, "feet", input$inches, "inches, Weight:", input$pounds, "lbs"))
